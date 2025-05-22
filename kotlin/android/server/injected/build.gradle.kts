@@ -21,6 +21,12 @@ dependencies {
     compileOnly(files("$androidHome/platforms/android-$androidCompileSdk/android.jar"))
 }
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = libs.versions.jvmTarget.get()
+    }
+}
+
 tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {

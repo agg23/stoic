@@ -1,4 +1,5 @@
 import java.util.Properties
+import org.gradle.api.plugins.JavaPlugin
 
 plugins {
     // Plugins need to be declared here to avoid warnings like:
@@ -117,6 +118,13 @@ subprojects {
                   jarFile.get().absolutePath
                 )
             }
+        }
+    }
+
+    plugins.withType<JavaPlugin> {
+        configure<JavaPluginExtension> {
+            sourceCompatibility = JavaVersion.toVersion(libs.versions.jvmTarget.get())
+            targetCompatibility = JavaVersion.toVersion(libs.versions.jvmTarget.get())
         }
     }
 

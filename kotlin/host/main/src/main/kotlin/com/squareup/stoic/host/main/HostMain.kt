@@ -361,7 +361,7 @@ fun arsync(vararg args: String) {
   // I observe hangs with large files if I don't pass --blocking-io
   val arsyncCmd = listOf("rsync", "--blocking-io", "--rsh=sh $wrapper") + args
   logDebug { "$arsyncCmd" }
-  runCommand(arsyncCmd, inheritIO = true)
+  // runCommand(arsyncCmd, inheritIO = true)
 }
 
 fun syncDevice() {

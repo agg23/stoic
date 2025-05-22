@@ -25,9 +25,9 @@ enum class LogLevel(val level: Int) {
 }
 
 fun log(level: LogLevel, msg: () -> String) {
-  if (level >= minLogLevel) {
-    System.err.println(msg())
-  }
+  // if (level >= minLogLevel) {
+    System.out.println(msg())
+  // }
 }
 
 fun logVerbose(msg: () -> String) = log(LogLevel.VERBOSE, msg)
